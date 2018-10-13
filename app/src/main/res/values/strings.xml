@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ALL IPTV</string>
+    <string name="action_settings">Settings</string>
+    <string name="loginTxt">Entrar</string>
+    <string name="registerTxt">Registrate gratis</string>
+    <string name="recoveryPass">Recuperar contraseña</string>
+    <!-- url -->
+    <string name="url">http://app.checktime.com.mx/index.php</string>
+
+    <string name="title_activity_lista">lista</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="lbl_text_video">Cargando...</string>
+</resources>
