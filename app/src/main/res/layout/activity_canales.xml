@@ -16,7 +16,7 @@
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="20dp"
@@ -27,12 +27,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/list_item"
-            app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintVertical_bias="1.0" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <EditText
@@ -42,15 +42,29 @@
             android:drawableLeft="@drawable/ic_search"
             android:textColor="@android:color/white" />
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-6465876457092821/8036682286"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
         <GridView
             android:id="@+id/simpleListView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="413dp"
             android:columnWidth="80dp"
-            android:numColumns="auto_fit"
-            android:gravity="center"/>
-    </LinearLayout>
+            android:gravity="center"
+            android:numColumns="auto_fit" />
 
+    </LinearLayout>
 
 
 </LinearLayout>

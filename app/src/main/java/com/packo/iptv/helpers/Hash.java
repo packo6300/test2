@@ -14,7 +14,7 @@ public class Hash {
             }
             return sb.toString();
         } catch (java.security.NoSuchAlgorithmException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
         return null;
     }

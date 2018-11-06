@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_iptv"
+        android:icon="@mipmap/ic_launcher_kell"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_iptv"
+        android:roundIcon="@mipmap/ic_launcher_kell"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -31,7 +31,7 @@
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".CanalesActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.AppBarOverlay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

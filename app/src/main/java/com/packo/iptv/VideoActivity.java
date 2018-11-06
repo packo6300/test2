@@ -64,7 +64,6 @@ public class VideoActivity extends AppCompatActivity  {
         mc.setAnchorView(videoView);
         mc.setMediaPlayer(videoView);
         videoView.setMediaController(mc);
-
         Uri uri = Uri.parse(u);
         videoView.setVideoURI(uri);
         videoView.requestFocus();

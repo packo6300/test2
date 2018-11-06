@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -60,21 +61,11 @@ public class CanalesActivity extends AppCompatActivity {
     int count=0;
     int clik=5;
     String url;
+    SharedPreferences sharedPref;
     private InterstitialAd mInterstitialAd;
     private String[] listas={
-            "http://srregio.xyz/IPTV/regioflix.m3u",
-            "http://srregio.xyz/IPTV/regiotv.m3u",
-            "http://srregio.xyz/IPTV/smartv.m3u",
-            "http://srregio.xyz/IPTV/deportes.m3u",
-            "http://tecnotv.xyz/claro.m3u",
-            "http://tecnotv.xyz/lista2.m3u",
-            "http://tecnotv.xyz/lista3.m3u",
-            "http://tvpremiumhd.club/tv.m3u",
-            "http://tecnotv.xyz/peliculas.m3u",
-            "http://tecnotv.xyz/peliculas1.m3u",
-            "https://dl.dropboxusercontent.com/s/0ojzn3qmwo5p5s5/pelisnuevas4mil.m3u?dl=0",
-            "http://app.checktime.com.mx/listaPelis.php",
-            "http://app.checktime.com.mx/iptv.php"
+            "https://dl.dropboxusercontent.com/s/u8cz24qtiutcmfh/IPTV%20Mexico%20%26%20Latinoamerica%20%26%20Espa%C3%B1a%20%25%25kell2019%20NZT.M3U?dl=0",
+            "http://srregio.xyz/IPTV/regioflix.m3u"
     };
 
     @Override
@@ -93,22 +84,14 @@ public class CanalesActivity extends AppCompatActivity {
         simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (canalesAdapter.getItem(position)==null){}
-                else {
-
-                        /*clik++;
-                        if(clik==5){
-                            if(mInterstitialAd.isLoaded()){
-                                mInterstitialAd.show();
-                            }
-                            clik=1;
-                        }*/
-                        Object linked = canalesAdapter.getItem(position);
-                        ItemBean item= (ItemBean) linked;
-                        Intent intent = new Intent(CanalesActivity.this, VideoActivity.class);
-                        intent.putExtra("url",item.getUrl());
-                        startActivity(intent);
-                }
+            if (canalesAdapter.getItem(position)==null){}
+            else {
+                Object linked = canalesAdapter.getItem(position);
+                ItemBean item= (ItemBean) linked;
+                Intent intent = new Intent(CanalesActivity.this, VideoActivity.class);
+                intent.putExtra("url",item.getUrl());
+                startActivity(intent);
+            }
             }
         });
     }
@@ -116,6 +99,9 @@ public class CanalesActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.activity_canales);
+    }
+    public void loadList(){
+
     }
     public void listaCanales() {
         try{
@@ -185,9 +171,10 @@ public class CanalesActivity extends AppCompatActivity {
                             }
                         }
                         if (receiveString.startsWith("http")){
-                            if(!receiveString.contains("http://srregio.com") && !receiveString.contains("127.0.0.1")&&
+                            /*if(!receiveString.contains("http://srregio.com") && !receiveString.contains("127.0.0.1")&&
                                     !receiveString.contains("google.com") && !receiveString.contains("/error")
                                     && !receiveString.contains("para ver como")&& !receiveString.contains("/rede")){
+                            */
                                 count++;
                                 if(nombre.isEmpty()){
                                     nombre="item"+count;
@@ -198,16 +185,15 @@ public class CanalesActivity extends AppCompatActivity {
                                 this.list.add(new ItemBean(urlimg,nombre,receiveString));
                                 urlimg="";
                                 nombre="";
-                            }
+                            /*}
                             else{
                                 Log.i("pelicula",nombre+" - "+receiveString);
-                            }
+                            }*/
                         }
                     }
                 }
                 inputStream.close();
                 canalesAdapter= new CanalesAdapter(CanalesActivity.this, R.layout.item_list, list);
-                //Toast.makeText(CanalesActivity.this,"Se han cargado: "+list.size()+" Canales y películas",Toast.LENGTH_SHORT).show();
                 simpleList.setAdapter(canalesAdapter);
             }
         }
